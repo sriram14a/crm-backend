@@ -3,6 +3,8 @@ import cors from "cors"
 import express from "express";
 import { MongoClient } from "mongodb";
 import { usersRouter } from "./routes/user.js";
+import { adduserRouter } from "./routes/adduser.js";
+import { addLeadRouter } from "./routes/addlead.js";
 
 dotenv.config();
 
@@ -30,6 +32,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", usersRouter);
+app.use("/adduser", adduserRouter);
+app.use("/addlead", addLeadRouter)
+
 
 app.listen(PORT, () => console.log("Server listening to PORT", PORT));
 
